@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/boldare-recruitment-task/static/css/main.16067423.css",
-    "main.js": "/boldare-recruitment-task/static/js/main.1f85ea06.js",
+    "main.js": "/boldare-recruitment-task/static/js/main.37655e50.js",
     "static/media/fa-solid-900.ttf": "/boldare-recruitment-task/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
     "static/media/fa-brands-400.ttf": "/boldare-recruitment-task/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
     "static/media/fa-solid-900.woff2": "/boldare-recruitment-task/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
@@ -12,10 +12,10 @@
     "static/media/fa-v4compatibility.woff2": "/boldare-recruitment-task/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
     "index.html": "/boldare-recruitment-task/index.html",
     "main.16067423.css.map": "/boldare-recruitment-task/static/css/main.16067423.css.map",
-    "main.1f85ea06.js.map": "/boldare-recruitment-task/static/js/main.1f85ea06.js.map"
+    "main.37655e50.js.map": "/boldare-recruitment-task/static/js/main.37655e50.js.map"
   },
   "entrypoints": [
     "static/css/main.16067423.css",
-    "static/js/main.1f85ea06.js"
+    "static/js/main.37655e50.js"
   ]
 }

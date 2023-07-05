@@ -1,1 +1,0 @@
-# boldare-recruitment-task

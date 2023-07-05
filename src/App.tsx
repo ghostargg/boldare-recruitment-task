@@ -25,6 +25,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+  const [sortDirection, setSortDirection] = useState('asc');
 
   useEffect(() => {
     setPeople(peopleFromServer);
@@ -40,6 +41,16 @@ function App() {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  const handleSort = (sortType: string) => {
+    if (sortType === sortBy && sortDirection === 'asc') {
+      setSortDirection('desc');
+    } else {
+      setSortDirection('asc');
+    }
+
+    setSortBy(sortType)
+  }
 
   const peopleFunctions = Array.from(new Set(people.map((person) => person.function)));
 
@@ -116,8 +127,12 @@ function App() {
       }
     })
 
+    if (sortDirection === 'desc') {
+      return filteredPeople.reverse();
+    }
+
     return filteredPeople;
-  }, [query, people, sortBy, selectedFunction, endDate, startDate]);
+  }, [query, people, sortBy, selectedFunction, endDate, startDate, sortDirection]);
 
   const paginatedPeople = useMemo(() => {
     const firstIndex = (currentPage - 1) * 5;
@@ -191,7 +206,7 @@ function App() {
               <th>
                 <span className='is-flex is-flex-wrap-nowrap'>
                   ID
-                  <a href='#/' onClick={() => setSortBy('id')}>
+                  <a href='#/' onClick={() => handleSort('id')}>
                     <span className='icon'>
                       <i className='fas fa-sort' />
                     </span>
@@ -202,7 +217,7 @@ function App() {
               <th>
                 <span className='is-flex is-flex-wrap-nowrap'>
                   Name
-                  <a href='#/' onClick={() => setSortBy('firstName')}>
+                  <a href='#/' onClick={() => handleSort('firstName')}>
                     <span className='icon'>
                       <i className='fas fa-sort' />
                     </span>
@@ -213,7 +228,7 @@ function App() {
               <th>
                 <span className='is-flex is-flex-wrap-nowrap'>
                   Surname
-                  <a href='#/' onClick={() => setSortBy('lastName')}>
+                  <a href='#/' onClick={() => handleSort('lastName')}>
                     <span className='icon'>
                       <i className='fas fa-sort' />
                     </span>
@@ -224,7 +239,7 @@ function App() {
               <th>
                 <span className='is-flex is-flex-wrap-nowrap'>
                   Birth date
-                  <a href='#/' onClick={() => setSortBy('dateOfBirth')}>
+                  <a href='#/' onClick={() => handleSort('dateOfBirth')}>
                     <span className='icon'>
                       <i className='fas fa-sort' />
                     </span>
@@ -235,7 +250,7 @@ function App() {
               <th>
                 <span className='is-flex is-flex-wrap-nowrap'>
                   Function
-                  <a href='#/' onClick={() => setSortBy('function')}>
+                  <a href='#/' onClick={() => handleSort('function')}>
                     <span className='icon'>
                       <i className='fas fa-sort' />
                     </span>
@@ -246,7 +261,7 @@ function App() {
               <th>
                 <span className='is-flex is-flex-wrap-nowrap'>
                   Experience
-                  <a href='#/' onClick={() => setSortBy('experience')}>
+                  <a href='#/' onClick={() => handleSort('experience')}>
                     <span className='icon'>
                       <i className='fas fa-sort' />
                     </span>
